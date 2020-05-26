@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Allen's Work Share Map</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<meta name="viewport" content="initial-scale=1.0">
+<meta charset="utf-8">
+
+<style>
+
+</style>
+<!--<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&language=de&libraries=geometry"></script>-->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript"></script>
+<script src="config.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+<div class="topnav">
+  <!--<a class="active" href="#home">Home</a>-->
+  <!--<a href="#news">News</a>-->
+  <!--<a href="#contact">Contact</a>-->
+  <!--<a href="#Marker">Marker</a>-->   
+  <!--<button onclick="addmarker()">Add marker</button>-->
+<!--<img src="https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png" onclick="addmarker()" style="right: 10px">-->
+</div>
+
+
+    
+    
+<div id="map"></div> 
+
+<div id="buttons" class="buttons">
+    <button id="layerbutton" class="layerbutton default" onclick="showlayers()" ><h2>Layers</h2></button>
+    <button id="legendbutton" class="legendbutton default" onclick="showlegend()"><h2>Legend</h2></button>
+</div>
+
+<div id="currentbutton" style="vertical-align:middle">
+<img  class="currentbutton default" src="./img/bluedot.png" onclick="centercurrent()" width="20px" height="20px" style="vertical-align:middle"><br>
+<img id="chatbutton" href="#chat" class="chatbutton default" src="./img/chat.png" onclick="showchat()" width="30px" height="30px" style="vertical-align:middle">
+</div>
+
+<div id="ab" width=80% >
+    <span id="layers">
+    <h3><label class="label">All Observation Points: <input id="ckpt" type="checkbox" onclick="setpoints()"><br></label>
+    <p>Point Size: <span id="pointsize_value">3</span></p><input type="range" min="1" max="5" value="3" id="pointrange"><br></h3><hr class="solid">
+    <h2>Line Features</h2><h3>
+    <label class="label"><br>Electricity Cable: <input id="ck1" type="checkbox" checked="checked" onclick="layerBCEdisplay()"><br></label>
+    <label class="label"><br>Communication Cable: <input id="ck2" type="checkbox" checked="checked" onclick="layerBCCdisplay()"><br></label>
+    <label class="label"><br>Storm: <input id="ck3" type="checkbox" checked="checked" onclick="layerBPSTdisplay()"><br></label>
+    <label class="label"><br>Sanitary: <input id="ck4" type="checkbox" checked="checked" onclick="layerBPSAdisplay()"><br></label>
+    <label class="label"><br>Water Distribution: <input id="ck5" type="checkbox" checked="checked" onclick="layerBPWdisplay()"><br></label>
+    <label class="label"><br>Gas Distribution: <input id="ck6" type="checkbox" checked="checked" onclick="layerBPGDdisplay()"><br></label>
+    <label class="label"><br>Oil Line: <input id="ck7" type="checkbox" checked="checked" onclick="layerBPOdisplay()"><br></label>
+    <label class="label"><br>Unknown: <input id="ck8" type="checkbox" checked="checked" onclick="layerBCUNKdisplay()"><br></label>
+    <label class="label"><br>Road/Terrian Features: <input id="ck9" type="checkbox" onclick="layerTOPOdisplay()"></label><br><hr class="solid"></h3>
+    <h2>Point Features</h2><h3>
+    <label class="label"><br>Ground Shots: <input id="ckgnd" type="checkbox" onclick="setpointlayermarker(ckgnd,gnd,gndmarker)"><br></label>
+    <label class="label"><br>Utilities: <input id="ckuti" type="checkbox"  onclick="setpointlayermarker(ckuti,utilities,utilitiesmarker)"><br></label>
+    <label class="label"><br>Service Box/Valve: <input id="cksvb" type="checkbox"  onclick="setpointlayermarker(cksvb,svb,svbmarker)"><br></label>
+    <label class="label"><br>Road Feature: <input id="ckroa" type="checkbox"  onclick="setpointlayermarker(ckroa,roadfeatures,roadfeaturesmarker)"><br></label>
+    <label class="label"><br>Terrain: <input id="ckter" type="checkbox"  onclick="setpointlayermarker(ckter,terrain,terrainmarker)"><br></label>
+    <label class="label"><br>Culvert: <input id="ckcul" type="checkbox"  onclick="setpointlayermarker(ckcul,culvert,culvertmarker)"><br></label>
+    <label class="label"><br>Sign: <input id="cksign" type="checkbox"  onclick="setpointlayermarker(cksign,sign,signmarker)"><br></label>
+    <label class="label"><br>Manhole: <input id="ckmh" type="checkbox"  onclick="setpointlayermarker(ckmh,mh,mhmarker)"><br></label>
+    <label class="label"><br>Photo Tie: <input id="ckpht" type="checkbox"  onclick="setpointlayermarker(ckpht,photo,photomarker)"><br></label>
+        <br><br>
+    </h3>
+    </span>
+
+
+<div id="legend"></div>
+<div id="chat">
+    <!--<span id="close" class="close" onclick="c.style.display='none'"><h3>x</h3></span><br>-->
+    <div id="chatcontent" height="400px"></div>
+    <div>
+        <input type="text" id="inital" placeholder="initial" size="5">
+        <input type="text" id="message" placeholder="message">
+        <input type="submit" value="Send" onclick="sendchat()">
+    </div>
+</div>
+</div>
+<script>
+
+var pointrange = document.getElementById("pointrange");
+var pointvalue = document.getElementById("pointsize_value");
+pointvalue.innerHTMl = pointrange.value;
+pointrange.oninput = function() {
+  pointvalue.innerHTML = this.value;
+};
+
+</script>
+<script>
+window.apikey = "";
+</script>
+
+<script src="loadfile.js"></script>
+<script src="loadmap.js"></script>
+<script src="key.js"></script>
+<!--<script src="test.js"></script>-->
+<script>
+
+// AIzaSyDO5rRUBi-Z0xTIog8BNnnDVrSeYI1oKH4
+// console.log(api);
+window.GOOGLEKEY = 'https://maps.googleapis.com/maps/api/js?callback=initMap&key=' + api;
+// console.log(GOOGLEKEY);
+var x = document.getElementById("layers");
+var l = document.getElementById("legend");
+var c = document.getElementById("chat");
+x.style.display="none";
+l.style.display="none";
+c.style.display="none";
+chatreceive();
+
+
+
+// var a = document.getElementById("map").addEventListener("click", function(){
+//         // console.log("closeall function");
+//         var 
+//         if (x.style.display == "block"){x.style.display = "none"
+//         }else{
+//             console.log("display = none");
+//         //   x.style.display = "block";
+//         };
+//         if (l.style.display == "block"){l.style.display = "none"
+//         }else{
+//             console.log("display = none");
+//         };   
+//     });
+
+function showlayers(){
+  if (x.style.display == "none") {
+    x.style.display = "block";
+    l.style.display = "none";
+    c.style.display = "none";
+
+  } else {
+    x.style.display = "none";
+  }
+}
+function showlegend(){
+  if (l.style.display == "none") {
+    l.style.display = "block";
+    x.style.display = "none";
+    c.style.display = "none";
+
+  } else {
+    l.style.display = "none";
+  }
+}
+function showchat(){
+  if (c.style.display == "none") {
+    c.style.display = "block";
+    x.style.display = "none";
+    l.style.display = "none";
+  } else {
+    c.style.display = "none";
+  }
+}
+    
+$('#chatbutton').click(function() {
+    $('html,body').animate({
+        scrollTop: $("#chatcontent").offset().top},
+        'slow');
+});
+
+
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyDO5rRUBi-Z0xTIog8BNnnDVrSeYI1oKH4&libraries=geometry" async defer></script>
+</body>
+</html>

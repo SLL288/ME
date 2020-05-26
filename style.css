@@ -1,0 +1,222 @@
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.demobox {
+    background-color: lightskyblue ;
+    color: black;
+    /*text-align: left; */
+    min-width:30px;
+    width:90%;
+    min-height:25px;
+    padding:10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+/* Always set the map height explicitly to define the size of the div
+* element that contains the map. */
+.img{
+z-index:10;
+   /*height: 25px;*/
+   /*width: 25px;*/
+}
+
+.label:{
+    height: 15px;
+}
+.label:hover{
+    height: 30px;
+    color: black;
+    text-align:center;
+    background-color: white;
+}
+.checkboxes {
+      text-align: center;
+}
+
+.checkboxes input{
+margin-right: 0 0 0 20px;
+text-align: center;
+}
+.buttons{
+margin:10px;
+}
+.legendbutton{
+    text-align: center; 
+    line-height: 10px;
+    height: 40px;
+    margin:0px;
+    cursor: pointer;
+    direction: ltr;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    color: rgb(0, 0, 0);
+    font-family: 18px, "Roboto", Arial, sans-serif;
+    -webkit-user-select: none;
+    font-size: 11px;
+    background-color: rgb(255, 255, 255);
+    padding: 0px 17px;
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 0px solid rgba(0, 0, 0, 0.14902);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px;
+    box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px;
+    min-width: 28px;
+    font-weight: 500;
+}
+
+.layerbutton{
+    text-align: center; 
+    line-height: 10px;
+    height: 40px;
+    margin:0px;
+    cursor: pointer;
+    direction: ltr;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    color: rgb(0, 0, 0);
+    font-family: 18px, "Roboto", Arial, sans-serif;
+    -webkit-user-select: none;
+    font-size: 11px ;
+    background-color: rgb(255, 255, 255);
+    padding: 0px 17px;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 0px solid rgba(0, 0, 0, 0.14902);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px;
+    box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px;
+    min-width: 28px;
+    font-weight: 500;
+}
+.default:hover {
+    background: #ddd; 
+    font-weight: 900}
+
+#layers{
+    overflow: scroll;
+    height: 80%;
+    /*z-index:2;    */
+    /*background-color: black;*/
+    color: #e7e7e7;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 20px;
+    margin: 0px;
+    border: 1px solid #000;
+}
+#chat{
+    /*overflow: scroll;*/
+    height: 80%;
+    max-width:400px;
+    /*z-index:2;    */
+    /*background-color: black;*/
+    color: #e7e7e7;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 20px;
+    margin: 0px;
+    border: 1px solid #000;
+}
+
+
+
+#legend {
+    /*height: 100%;*/
+    font-size: large;
+    font-family: Arial, sans-serif;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    margin: 0px;
+    border: 1px solid #000;
+}
+.currentbutton{
+    margin:10px;
+    height:40px;
+    width: 40px;
+    background-color: #FFFFFF;
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+    vertical-align: middle;
+}
+.chatbutton{
+    margin:10px;
+    height:20px;
+    width: 20px;
+    padding: 10px;
+    background-color: #FFFFFF;
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+    vertical-align: middle;
+    z-index: -2;
+
+}
+.sidebuttons{
+    /*background-color: #FFFFFF;*/
+    /*border-bottom-left-radius: 2px;*/
+    /*border-top-left-radius: 2px;*/
+    /*border-bottom-right-radius: 2px;*/
+    /*border-top-right-radius: 2px;*/
+    margin:10px;
+    /*padding:0px;*/
+    /*width:40px;*/
+    /*height:40px;*/
+    vertical-align: middle;
+}
+#map {
+    height: 100%;
+    z-index: 2;
+}
+#close {
+    float:right;
+    display:inline-block;
+    padding:0px 0px;
+    /*background:#ccc;*/
+}
+#close:hover {
+    float:right;
+    display:inline-block;
+    padding:2px 5px;
+    background:#ccc;
+    color:#fff;
+}
+#chatcontent{
+    height:90%;
+    overflow: scroll;
+}
