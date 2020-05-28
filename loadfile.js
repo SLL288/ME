@@ -1,4 +1,8 @@
 
+<<<<<<< HEAD
+=======
+//initial points lines list and x y xml documents.
+>>>>>>> 30374e291ed76cfe3dc4d74fd760f4fd317f1524
 
 var totalpoints = [], totallines= {}; 
 var terrain = [];
@@ -51,7 +55,13 @@ function loadxml(filename){
         identify(String(code),templist);
         points.push(templist);
         totalpoints.push(templist);
+<<<<<<< HEAD
     };
+=======
+
+    };
+
+>>>>>>> 30374e291ed76cfe3dc4d74fd760f4fd317f1524
     pointindex = getCol(points,0);
     
     for (i = 0; i < y.length; i++){
@@ -60,7 +70,10 @@ function loadxml(filename){
         while (name in totallines){
             var linecode = name.toString();
             name = linecode.slice(0,-1) + (parseInt(linecode.slice(-1)) + 1);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 30374e291ed76cfe3dc4d74fd760f4fd317f1524
         };
         
         var start = y[i].getElementsByTagName('Start');
@@ -91,8 +104,15 @@ function loadxml(filename){
     delete x,y,txt,xmlhttp, xmlDoc;
 };
 
+<<<<<<< HEAD
 files = [
         "PUT YOUR XML FILE NAME HERE",
+=======
+
+files = [
+        // "KLTP-DATA",
+        "YOUR XML FILES",
+>>>>>>> 30374e291ed76cfe3dc4d74fd760f4fd317f1524
         ];
 
 for (x in files){
