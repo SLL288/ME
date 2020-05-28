@@ -1,5 +1,8 @@
 # ME
 
-add database information into cred.ini files
-create folder XML.files
-add XML file names into loadfile.js file
+<p>
+create crndential database information in cred.ini files	<br>
+add XML file names into locreate folder XML.files <br>
+loadfile.js extract xml files from XMLfile folder <br>
+loadmap.js display geographic features onto webapp
+</p>
