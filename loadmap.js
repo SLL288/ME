@@ -47,20 +47,15 @@ window.photomarker = [];
 
 
 
-// setpointmarker(gnd,gndmarker,map);
-// markersetmap(gnd,gndmarker,map);
-// console.log(gndmarker);
-// var setcurrentLocation();
+
 
 
 var latlong = setcurrentLocation();
-// console.log(setcurrentLocation());
-// setcurrent(currentlat,currentlng);
 
 
 
 
-// delete totalpoints
+
 
 //lines display
 var lineskey = Object.keys(totallines);
@@ -89,12 +84,10 @@ window.keyBPGD = [];
 for (j = 0; j< lineskey.length; j++){
     var key = lineskey[j];
     var value = totallines[key];
-    // console.log(key);
     var linepath = [];
     for (k = 0; k<value.length; k++){
         linepath.push(new google.maps.LatLng(value[k][0],value[k][1]));
     }
-    // console.log(linepath);
     
     //SET 9 LINES IN DIFFERETN COLOUR AND STORE THEM IN LAYER(LIST)
     var linecolor="#000000";
@@ -136,16 +129,12 @@ for (j = 0; j< lineskey.length; j++){
 
 function addpolyline(layer,linepath,linecolor,layerkey,keyname){
     var id = layer.length;
-    // console.log(id);
     layer.push( 
         id = new google.maps.Polyline({path: linepath,strokeColor: linecolor,strokeOpacity: 1.0,
         strokeWeigh: 3})
     );
     layerkey.push(keyname);
-    
-    // layer[layerid] = new google.maps.Polyline({path: linepath,strokeColor: linecolor,strokeOpacity: 1.0,
-    //     strokeWeigh: 3})
-    // id += 1;
+
 }
 
 
@@ -174,9 +163,7 @@ div.innerHTML = '<img src="/img/dot.png" width=10px height=10px>' + " Observatio
 legend.appendChild(div);
 
 var layerbutton = document.getElementById('layerbutton');
-// map.controls[google.maps.ControlPosition.TOP_RIGHT].push(layerbutton);
 var legendbutton = document.getElementById('legendbutton');
-// map.controls[google.maps.ControlPosition.TOP_RIGHT].push(legendbutton);
 var buttons = document.getElementById('buttons');
 buttons.appendChild(layerbutton);
 buttons.appendChild(legendbutton);
@@ -239,9 +226,7 @@ layerBPOdisplay();
 layerBCUNKdisplay();
 layerTOPOdisplay();
 
-// delete layerBCE,layerBCC,layerBPST,layerBPSA,layerBPO,layerBPW,layerTOPO,layerBCUNK,layerBPGD;
-// delete keyBCE,keyBCUNK,keyBPSA,keyBPGD,keyBPW,keyBPST,keyBCC,keyBPO,keyTOPO;
-// delete marker;
+
 };//end of initMap()
 
 function setcurrentLocation(){
@@ -267,11 +252,7 @@ function centercurrent() {
         center:{lat:currentlat, lng:currentlng},
         zoom: 20
     });
-    // var newmap = new google.maps.Map(document.getElementById('map'), {
-    //     setCenter: currentlat+","+currentlng;
-    //     map: map,
-    //     zoom:15,
-    // });
+
 };
 
 
