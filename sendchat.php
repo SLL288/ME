@@ -1,14 +1,12 @@
 <?php
-// echo $_GET['number'];
-// $note2 = $_POST['note1'];
-$initial = $_POST['initial'];
-$content = $_POST['content'];
-$id = "XXX";
+$config = parse_ini_file('cred.ini');
+$conn = new mysqli('localhost', $config['username'], $config['password'], $config['db_name']);
 
-$host="localhost";      
-$username="id12934641_allen"; 
-$password="allen"; 
-$db_name="id12934641_allenshare"; 
+$useremail = $_POST["email"];
+
+$userpassword = $_POST["password"];
+
+
 $tbl_name="chathistory"; 
 
 // mysqli_connect("$host", "$username", "$password")or die(mysqli_error($conn)); 

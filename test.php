@@ -1,15 +1,21 @@
 <?php
+$config = parse_ini_file('cred.ini');
+$conn = new mysqli('localhost', $config['username'], $config['password'], $config['db_name']);
+
+$useremail = $_POST["email"];
+// $useremail = "123123";
+
+$userpassword = $_POST["password"];
+// $number = $_POST['number'];
+$number = strval($_POST['number1']);
+
+
 // echo $_GET['number'];
-$note2 = $_POST['note1'];
 $number2 = $_POST['number1'];
 
-$host="localhost";      
-$username="id12934641_allen"; 
-$password="allen"; 
-$db_name="id12934641_allenshare"; 
+
 $tbl_name="comments"; 
 
-// mysqli_connect("$host", "$username", "$password")or die(mysqli_error($conn)); 
 $conn = new mysqli($host, $username, $password, $db_name);
 
 

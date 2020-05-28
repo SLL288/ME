@@ -1,17 +1,14 @@
 <?php
+$config = parse_ini_file('cred.ini');
+$conn = new mysqli('localhost', $config['username'], $config['password'], $config['db_name']);
+
+$useremail = $_POST["email"];
+// $useremail = "123123";
+
+$userpassword = $_POST["password"];
 // $number = $_POST['number'];
 $number = strval($_POST['number1']);
-// echo $number;
-// $number = 123123;
-// echo $number;
-// echo "agj niojf dskjf dofjao;g";
-// echo "start sql requesting from database ... ...";
-$host="localhost";      
-$username="id12934641_allen"; 
-$password="allen"; 
-$db_name="id12934641_allenshare"; 
-$tbl_name="comments"; 
-$conn = new mysqli('localhost', 'id12934641_allen', 'allen', 'id12934641_allenshare');
+
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
