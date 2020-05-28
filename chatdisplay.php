@@ -2,10 +2,15 @@
 // $number = $_POST['number'];
 // $number = strval($_POST['number1']);
 
-$host="localhost";      
-$username="id12934641_allen"; 
-$password="allen"; 
-$db_name="id12934641_allenshare"; 
+
+$config = parse_ini_file('cred.ini');
+$conn = new mysqli('localhost', $config['username'], $config['password'], $config['db_name']);
+
+$useremail = $_POST["email"];
+
+
+$userpassword = $_POST["password"];
+
 $tbl_name="chathistory"; 
 $conn = new mysqli('localhost', 'id12934641_allen', 'allen', 'id12934641_allenshare');
 
